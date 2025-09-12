@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Изучение слов</title>
+  </head>
+  <body>
+    {% if error %}
+    <p style="color: red">{{ error }}</p>
+    {% else %}
+    <h1>Слово {{ index }} из {{ total }}</h1>
+    <h2>Переведи: {{ word.word_en }}</h2>
+
+    <form method="post">
+      {% csrf_token %} {{ form.as_p }}
+      <button type="submit">Проверить</button>
+    </form>
+
+    {% if result %}
+    <p><strong>{{ result }}</strong></p>
+    {% endif %}
+
+    <h3>Прогресс по слову</h3>
+    <p>Правильных: {{ progress.correct_answers }}</p>
+    <p>Ошибок: {{ progress.wrong_answers }}</p>
+    {% endif %}
+  </body>
+</html>

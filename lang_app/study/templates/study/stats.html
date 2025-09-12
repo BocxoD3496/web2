@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Статистика</title>
+  </head>
+  <body>
+    <h1>Статистика за последние 10 слов</h1>
+
+    <table border="1">
+      <tr>
+        <th>Слово (EN)</th>
+        <th>Перевод (RU)</th>
+        <th>Правильные</th>
+        <th>Ошибки</th>
+      </tr>
+      {% for w in words %}
+      <tr>
+        <td>{{ w.word_en }}</td>
+        <td>{{ w.word_ru }}</td>
+        <td>{{ w.correct_answers }}</td>
+        <td>{{ w.wrong_answers }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+
+    <br />
+    <a href="{% url 'home' %}">Продолжить обучение</a>
+  </body>
+</html>
