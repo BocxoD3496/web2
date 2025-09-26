@@ -1,0 +1,17 @@
+{% extends "study/base.html" %}
+{% load custom_tags %}
+{% block content %}
+<h2>Lessons</h2>
+<div class="lessons-grid">
+    {% for l in lessons %}
+    <div class="lesson-card {% if l.completed %}done{% endif %}">
+        <h3>{{ l.title }}</h3>
+        <p>{{ l.content|truncatechars:50 }}</p>
+        <a href="{% url 'study:lesson_detail' l.id %}" class="btn">Open Lesson</a>
+        {% if l.completed %}<span class="badge">✓ Completed</span>{% endif %}
+    </div>
+    {% empty %}
+    <p>No lessons yet.</p>
+    {% endfor %}
+</div>
+{% endblock %}

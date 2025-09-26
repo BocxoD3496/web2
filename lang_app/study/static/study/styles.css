@@ -1,0 +1,33 @@
+/* Modern minimalist styles */
+body { font-family: 'Segoe UI', Tahoma, sans-serif; margin: 0; background: #f9fafb; color: #111; }
+.site-header { display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem; background: #2563eb; color: white; }
+.site-header h1 { margin: 0; font-size: 1.5rem; }
+.settings-form select, .settings-form button { padding: 0.3rem 0.5rem; border-radius: 6px; border: none; margin-left: 0.5rem; }
+.settings-form button { background: white; color: #2563eb; cursor: pointer; transition: 0.2s; }
+.settings-form button:hover { background: #e0e7ff; }
+
+main { padding: 2rem; }
+
+.lessons-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 1.5rem; }
+.lesson-card { background: white; border-radius: 12px; padding: 1rem; box-shadow: 0 2px 6px rgba(0,0,0,0.1); position: relative; }
+.lesson-card.done { border: 2px solid #16a34a; }
+.lesson-card h3 { margin-top: 0; font-size: 1.2rem; }
+.lesson-card .btn { display: inline-block; margin-top: 0.5rem; background: #2563eb; color: white; text-decoration: none; padding: 0.4rem 0.8rem; border-radius: 8px; transition: background 0.2s; }
+.lesson-card .btn:hover { background: #1d4ed8; }
+.badge { position: absolute; top: 10px; right: 10px; background: #16a34a; color: white; padding: 0.2rem 0.5rem; border-radius: 6px; font-size: 0.8rem; }
+
+.lesson-detail { background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); }
+.lesson-detail h2 { margin-top: 0; }
+.progress-form { margin-top: 1rem; }
+.btn { background: #2563eb; color: white; border: none; padding: 0.5rem 1rem; border-radius: 8px; cursor: pointer; transition: 0.2s; }
+.btn:hover { background: #1d4ed8; }
+.back-link { display: inline-block; margin-top: 1rem; color: #2563eb; text-decoration: none; }
+.back-link:hover { text-decoration: underline; }
+
+footer { margin-top: 2rem; padding: 1rem; text-align: center; font-size: 0.9rem; color: #555; }
+
+
+/* Quiz styles */
+.question { margin: 1rem 0; padding: 0.5rem; border-left: 4px solid #2563eb; background: #fff; border-radius: 6px; }
+.option { display: block; margin: 0.3rem 0; }
+.message { padding: 0.6rem; background: #ecfdf5; border: 1px solid #10b981; color: #065f46; border-radius: 6px; }

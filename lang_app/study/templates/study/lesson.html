@@ -1,0 +1,41 @@
+{% extends "study/base.html" %}
+{% load static %}
+{% block content %}
+<article class="lesson-detail">
+    <h2>{{ lesson.title }}</h2>
+    <p>{{ lesson.content }}</p>
+
+    {% if message %}
+        <p class="message">{{ message }}</p>
+    {% endif %}
+
+    {% if lesson.questions %}
+        <form method="post" action="{% url 'study:submit_test' lesson.id %}">
+            {% csrf_token %}
+            {% for q in lesson.questions %}
+                <fieldset class="question">
+                    <legend>{{ q.text }}</legend>
+                    {% for opt in q.options %}
+                    <label class="option"><input type="radio" name="{{ q.id }}" value="{{ opt }}"> {{ opt }}</label><br>
+                    {% endfor %}
+                </fieldset>
+            {% endfor %}
+            <input type="hidden" name="next" value="{% url 'study:lesson_detail' lesson.id %}">
+            <button type="submit" class="btn">Submit Answers</button>
+        </form>
+    {% else %}
+        <form method="post" action="{% url 'study:save_progress' %}" class="progress-form">
+            {% csrf_token %}
+            <input type="hidden" name="lesson_id" value="{{ lesson.id }}">
+            <label>
+                <input type="checkbox" name="completed" {% if completed %}checked{% endif %}>
+                Mark as completed
+            </label>
+            <input type="hidden" name="next" value="{% url 'study:lesson_detail' lesson.id %}">
+            <button type="submit" class="btn">Save Progress</button>
+        </form>
+    {% endif %}
+
+    <p><a href="{% url 'study:index' %}" class="back-link">← Back to lessons</a></p>
+</article>
+{% endblock %}

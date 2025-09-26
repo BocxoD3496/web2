@@ -2,7 +2,7 @@
 
 ## Установка
 ```bash
-git clone (https://github.com/BocxoD3496/web2)
+git clone <ссылка-на-репо>
 cd lang_app
 python -m venv venv
 source venv/bin/activate  # или venv\Scripts\activate на Windows
